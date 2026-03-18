@@ -174,59 +174,23 @@
 </head>
 <body>
 
-<style>
-.header-inner {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-}
-.header-title-block {
-  text-align: center;
-}
-.header-title-text {
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(24px, 3.5vw, 52px);
-  font-weight: 600;
-  color: #eab848;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  line-height: 1;
-}
-.header-logo svg {
-  height: clamp(60px, 7vw, 100px);
-  width: auto;
-  display: block;
-}
-@media (max-width: 700px) {
-  .header-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .header-title-block {
-    text-align: left;
-  }
-  .header-spacer {
-    display: none;
-  }
-}
-</style>
+<header style="background:#1c2a3f;min-height:160px;display:flex;align-items:center;padding:36px 60px;position:relative;">
 
-<header style="background:#1c2a3f;padding:clamp(20px,3vw,40px) clamp(20px,4vw,56px);border-bottom:3px solid #eab848;">
-  <div class="header-inner">
-    <div class="header-logo">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150">
-        <text x="10" y="60" font-family="Arial, sans-serif" font-weight="bold" font-size="48" fill="white">PURPOSEFUL</text>
-        <rect x="10" y="75" width="280" height="6" fill="white" />
-        <text x="10" y="120" font-family="Arial, sans-serif" font-size="42" fill="white" letter-spacing="4">advisors</text>
-      </svg>
-    </div>
-    <div class="header-title-block">
-      <div class="header-title-text">DECISION FRAMEWORK</div>
-    </div>
-    <div class="header-spacer"></div>
+  <!-- LEFT: logo -->
+  <div style="flex-shrink:0;z-index:1;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150" style="height:110px;width:auto;display:block;">
+      <text x="10" y="60" font-family="Arial, sans-serif" font-weight="bold" font-size="48" fill="white">PURPOSEFUL</text>
+      <rect x="10" y="75" width="280" height="6" fill="white" />
+      <text x="10" y="120" font-family="Arial, sans-serif" font-size="42" fill="white" letter-spacing="4">advisors</text>
+    </svg>
   </div>
+
+  <!-- CENTER: absolutely centered to full header width -->
+  <div style="position:absolute;left:0;right:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+    <div style="font-family:'Oswald',sans-serif;font-size:48px;font-weight:600;color:#eab848;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">DECISION FRAMEWORK</div>
+    
+  </div>
+
 </header>
 
 
@@ -398,7 +362,7 @@
     <div class="readiness-gate">
       <div class="rg-header">
         <div class="rg-eyebrow">Before You Execute</div>
-        <div class="rg-title">Are you ready to speak?</div>
+        <div class="rg-title">Are you ready to speak well?</div>
       </div>
       <div class="rg-body" id="readinessGrid">
         <div class="rg-dim" data-dim="0">
@@ -502,9 +466,7 @@
       regulatory: [
         {id:"i-ftc",label:"FTC / Consumer Protection",reasons:["calling-for-response","directly-affected"]},
         {id:"i-fda-cpg",label:"FDA (food / labeling)",reasons:["calling-for-response","directly-affected","material-disclosure"]},
-        {id:"i-elec-fed",label:"Elected Officials (Federal)",reasons:["calling-for-response","silence-misread"]},
-        {id:"i-elec-state",label:"Elected Officials (State)",reasons:["calling-for-response","silence-misread"]},
-        {id:"i-elec-local",label:"Elected Officials (Local)",reasons:["calling-for-response","silence-misread"]}
+        {id:"i-elec-cpg",label:"Elected Officials",reasons:["calling-for-response","silence-misread"]}
       ],
       reputational: [
         {id:"i-nat",label:"National Media",reasons:["calling-for-response","silence-misread"]},
@@ -715,9 +677,7 @@
         {id:"u-ferc",label:"FERC",reasons:["calling-for-response","directly-affected","material-disclosure"]},
         {id:"u-nerc",label:"NERC (reliability)",reasons:["calling-for-response","directly-affected"]},
         {id:"u-epa",label:"EPA",reasons:["calling-for-response","directly-affected"]},
-        {id:"u-elec-fed",label:"Elected Officials (Federal)",reasons:["calling-for-response","silence-misread"]},
-        {id:"u-elec-state",label:"Elected Officials (State)",reasons:["calling-for-response","silence-misread"]},
-        {id:"u-elec-local",label:"Elected Officials (Local)",reasons:["calling-for-response","silence-misread"]}
+        {id:"u-elec",label:"Elected Officials / Legislature",reasons:["calling-for-response","silence-misread"]}
       ],
       reputational: [
         {id:"u-trade",label:"Utility Trade Press",reasons:["calling-for-response","silence-misread"]},
@@ -744,9 +704,7 @@
         {id:"en-doe",label:"DOE",reasons:["calling-for-response","directly-affected"]},
         {id:"en-epa",label:"EPA",reasons:["calling-for-response","directly-affected"]},
         {id:"en-state",label:"State Energy Offices & PUCs",reasons:["calling-for-response","directly-affected"]},
-        {id:"en-elec-fed",label:"Elected Officials (Federal)",reasons:["calling-for-response","silence-misread"]},
-        {id:"en-elec-state",label:"Elected Officials (State)",reasons:["calling-for-response","silence-misread"]},
-        {id:"en-elec-local",label:"Elected Officials (Local)",reasons:["calling-for-response","silence-misread"]}
+        {id:"en-elec",label:"Elected Officials",reasons:["calling-for-response","silence-misread"]}
       ],
       reputational: [
         {id:"en-trade",label:"Clean Energy Trade Press",reasons:["calling-for-response","silence-misread"]},
@@ -848,12 +806,9 @@
         {id:"o-inv",label:"Investors / Funders",reasons:["calling-for-response","directly-affected"]}
       ],
       regulatory: [
-        {id:"o-reg-fed",label:"Regulators (Federal)",reasons:["directly-affected","material-disclosure"]},
-        {id:"o-reg-state",label:"Regulators (State)",reasons:["directly-affected","material-disclosure"]},
-        {id:"o-reg-local",label:"Regulators (Local)",reasons:["directly-affected","material-disclosure"]},
-        {id:"o-elec-fed",label:"Elected Officials (Federal)",reasons:["calling-for-response","silence-misread"]},
-        {id:"o-elec-state",label:"Elected Officials (State)",reasons:["calling-for-response","silence-misread"]},
-        {id:"o-elec-local",label:"Elected Officials (Local)",reasons:["calling-for-response","silence-misread"]}
+        {id:"o-fed",label:"Federal Regulators",reasons:["calling-for-response","directly-affected"]},
+        {id:"o-state",label:"State / Local Regulators",reasons:["calling-for-response","directly-affected"]},
+        {id:"o-elec",label:"Elected Officials",reasons:["calling-for-response","silence-misread"]}
       ],
       reputational: [
         {id:"o-nat",label:"National Media",reasons:["calling-for-response","silence-misread"]},
@@ -881,12 +836,8 @@
       ],
       regulatory: [
         {id:"p-sec",label:"SEC / Financial Regulators",reasons:["material-disclosure","directly-affected","calling-for-response"]},
-        {id:"p-reg-fed",label:"Regulators (Federal)",reasons:["directly-affected","material-disclosure"]},
-        {id:"p-reg-state",label:"Regulators (State)",reasons:["directly-affected","material-disclosure"]},
-        {id:"p-reg-local",label:"Regulators (Local)",reasons:["directly-affected","material-disclosure"]},
-        {id:"p-elec-fed",label:"Elected Officials (Federal)",reasons:["calling-for-response","silence-misread"]},
-        {id:"p-elec-state",label:"Elected Officials (State)",reasons:["calling-for-response","silence-misread"]},
-        {id:"p-elec-local",label:"Elected Officials (Local)",reasons:["calling-for-response","silence-misread"]}
+        {id:"p-fed",label:"Federal Regulators",reasons:["calling-for-response","directly-affected"]},
+        {id:"p-elec",label:"Elected Officials",reasons:["calling-for-response","silence-misread"]}
       ],
       reputational: [
         {id:"p-nat",label:"National Media",reasons:["calling-for-response","silence-misread"]},
@@ -910,12 +861,9 @@
         {id:"pr-chan",label:"Channel Partners",reasons:["directly-affected","silence-misread"]}
       ],
       regulatory: [
-        {id:"pr-reg-fed",label:"Regulators (Federal)",reasons:["directly-affected","material-disclosure"]},
-        {id:"pr-reg-state",label:"Regulators (State)",reasons:["directly-affected","material-disclosure"]},
-        {id:"pr-reg-local",label:"Regulators (Local)",reasons:["directly-affected","material-disclosure"]},
-        {id:"pr-elec-fed",label:"Elected Officials (Federal)",reasons:["calling-for-response","silence-misread"]},
-        {id:"pr-elec-state",label:"Elected Officials (State)",reasons:["calling-for-response","silence-misread"]},
-        {id:"pr-elec-local",label:"Elected Officials (Local)",reasons:["calling-for-response","silence-misread"]}
+        {id:"pr-fed",label:"Federal Regulators",reasons:["calling-for-response","directly-affected"]},
+        {id:"pr-state",label:"State / Local Regulators",reasons:["calling-for-response","directly-affected"]},
+        {id:"pr-elec",label:"Elected Officials",reasons:["calling-for-response","silence-misread"]}
       ],
       reputational: [
         {id:"pr-trade",label:"Trade Press",reasons:["calling-for-response","silence-misread"]},
@@ -939,9 +887,7 @@
       regulatory: [
         {id:"n-irs",label:"IRS / Tax Authorities",reasons:["material-disclosure","directly-affected"]},
         {id:"n-gov",label:"Government Grant Agencies",reasons:["calling-for-response","directly-affected"]},
-        {id:"n-elec-fed",label:"Elected Officials (Federal)",reasons:["calling-for-response","silence-misread"]},
-        {id:"n-elec-state",label:"Elected Officials (State)",reasons:["calling-for-response","silence-misread"]},
-        {id:"n-elec-local",label:"Elected Officials (Local)",reasons:["calling-for-response","silence-misread"]}
+        {id:"n-elec",label:"Elected Officials",reasons:["calling-for-response","silence-misread"]}
       ],
       reputational: [
         {id:"n-nat",label:"National Media",reasons:["calling-for-response","silence-misread"]},
