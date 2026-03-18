@@ -187,9 +187,11 @@
   display: block;
 }
 .header-title-block {
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   text-align: center;
   pointer-events: none;
   white-space: nowrap;
@@ -221,7 +223,7 @@
 }
 </style>
 
-<header style="background:#1c2a3f;padding:clamp(20px,3vw,40px) clamp(20px,4vw,56px);border-bottom:3px solid #eab848;">
+<header style="background:#1c2a3f;padding:clamp(20px,3vw,40px) clamp(20px,4vw,56px);border-bottom:3px solid #eab848;position:relative;">
   <div class="header-inner">
     <div class="header-logo" style="flex-shrink:0;z-index:1;">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150">
